@@ -1,5 +1,7 @@
 ﻿int[,] arr = new int[8, 8];
 
+
+//fill the matrix based on the first picture
 for (int i = 0; i < arr.GetLength(0); i++)
 {
     for (int j = i+1; j < arr.GetLength(1); j++)
@@ -8,13 +10,16 @@ for (int i = 0; i < arr.GetLength(0); i++)
     }
 }
 
+//print the matrix
 for (int i = 0; i < arr.GetLength(0); i++)
 {
+    Console.Write("| ");
     for (int j = 0; j < arr.GetLength(1); j++)
     {
         Console.Write(arr[i, j] + " ");
 
     }
+    Console.Write("|");
     Console.WriteLine();
 }
 
@@ -32,13 +37,16 @@ for (int i = 0; i < arr.GetLength(0)/2; i++)
 }
 
 // now print changed array
-Console.WriteLine("---------------------------------------");
+Console.WriteLine("--------------------");
 for (int i = 0; i < arr.GetLength(0); i++)
 {
+    Console.Write("| ");
     for (int j = 0; j < arr.GetLength(1); j++)
     {
         Console.Write(arr[i, j] + " ");
 
     }
+    Console.Write("|");
+
     Console.WriteLine();
 }
