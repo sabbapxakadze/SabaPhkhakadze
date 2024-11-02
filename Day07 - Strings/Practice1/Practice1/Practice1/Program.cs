@@ -1,66 +1,81 @@
 ﻿using System.Text;
 
 
-static bool IsVowel(char a)
+static bool IsVowelFunc(char a)
 {
-    switch (a)
+    switch (char.ToLower(a))
     {
         case 'a': return true;
-        case 'A': return true;
         case 'e': return true;
-        case 'E': return true;
         case 'i': return true;
-        case 'I': return true;
         case 'o': return true;
-        case 'O': return true;
         case 'u': return true;
-        case 'U': return true;
         default: return false;
     }
 }
 
-static void VowelFunction()
+static void VowelOrConsonantCounter(bool isVowel = true)
 {
+    string or = isVowel ? "Vowel" : "Consonant";
+    Console.Write($"Enter a string to count {or}s: ");
+    //default would be true
     string x = Console.ReadLine();
     
     int cnt = 0;
 
-    StringBuilder str = new StringBuilder();
+    if (isVowel)
     for (int i = 0; i < x.Length; i++)
     {
-        if (IsVowel(x[i]))
+        if (IsVowelFunc(x[i]))
         {
-            str.Append(x[i] + " ");
             cnt++;
         }  
     }
-    string result = str.ToString(); 
-    Console.WriteLine($"Vowel count is {cnt}");
-    Console.WriteLine($"Vowel: {result}");
-}
 
-
-
-static void ConsonantFunction()
-{
-    string x = Console.ReadLine();
-
-    int cnt = 0;
-
-    StringBuilder str = new StringBuilder();
+    else
     for (int i = 0; i < x.Length; i++)
     {
-        if (!IsVowel(x[i]))
+        if (!IsVowelFunc(x[i]))
         {
-            str.Append(x[i] + " ");
             cnt++;
         }
-    }
-    string result = str.ToString();
-    Console.WriteLine($"Consonant count is {cnt}");
-    Console.WriteLine($"Consonant: {result}");
+    }    
+
+    Console.WriteLine($"{or} count is {cnt}");
 }
 
-VowelFunction();
 
-ConsonantFunction();
+static void VowelOrConsonantString(bool isVowel = true)
+{
+
+    string or = isVowel ? "Vowel" : "Consonant";
+    Console.Write($"Enter a string to count {or}s: ");
+    //default would be true
+    string x = Console.ReadLine();
+
+    StringBuilder str = new StringBuilder();
+    if (isVowel)
+        for (int i = 0; i < x.Length; i++)
+        {
+            if (IsVowelFunc(x[i]))
+            {
+                str.Append(x[i] + " ");             
+            }
+        }
+
+    else
+        for (int i = 0; i < x.Length; i++)
+        {
+            if (!IsVowelFunc(x[i]))
+            {
+                str.Append(x[i] + " ");              
+            }
+        }
+    string result = str.ToString();
+
+    Console.WriteLine($"{or}: {result}");
+}
+
+VowelOrConsonantCounter();
+
+VowelOrConsonantString();
