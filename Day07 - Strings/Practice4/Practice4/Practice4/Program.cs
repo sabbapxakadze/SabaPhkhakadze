@@ -1,9 +1,8 @@
 ﻿static int CountWords(string x)
 {
     int cnt = 0;
-    string a = x.Trim();
 
-    string[] arr = a.Split(' ');
+    string[] arr = x.Split(' ');
 
     for (int i = 0; i < arr.Length; i++)
     {
