@@ -28,7 +28,7 @@ void App(string path)
     if (path == "exit") return;
     if (exists == false)
     {
-        Console.WriteLine("The directory path does not exists");
+        Console.WriteLine($"The given directory path: \"{path}\" does not exists");
         return;
     }
     
@@ -38,7 +38,7 @@ void App(string path)
 
     foreach (string directory in directories)
     {
-        App(path + "\\:" + directory);
+        App(path + "\\" + directory);
     }
 
 
