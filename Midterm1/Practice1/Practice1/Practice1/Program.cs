@@ -36,4 +36,4 @@ void ShowPairs(int number, int[] array)
 
 int[] x = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-ShowPairs(5, x);
+ShowPairs(4, x);
