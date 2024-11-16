@@ -35,7 +35,7 @@ static void TicTacToe()
             int x1 = int.Parse(Console.ReadLine());
             Console.Write("Player1, Where do you put X on y axis?: ");
             int y1 = int.Parse(Console.ReadLine());
-            while (matrix[x1, y1] == "X")
+            while (x1 > x - 1 || y1 > x - 1 || matrix[x1,y1] != null )
             {
                 Console.WriteLine("Please enter a valid x,y");
                 x1 = int.Parse(Console.ReadLine());
@@ -65,26 +65,27 @@ static void TicTacToe()
 
         else
         {
-            Console.Write("Player2, Where do you put O on x axis?: ");
+            Console.Write("Player2, Where do you put 0 on x axis?: ");
             int x1 = int.Parse(Console.ReadLine());
-            Console.Write("Player2, Where do you put O on y axis?: ");
+            Console.Write("Player2, Where do you put 0 on y axis?: ");
             int y1 = int.Parse(Console.ReadLine());
-            while (matrix[x1,y1] == "O")
+            while (x1 > x - 1 || y1 > x - 1 || matrix[x1, y1] != null)
             {
                 Console.WriteLine("Please enter a valid x,y");
                 x1 = int.Parse(Console.ReadLine());
                 y1 = int.Parse(Console.ReadLine());
-
-                matrix[x1,y1] = "O";
+            
             }
+
+            matrix[x1, y1] = "0";
             DrawMatrix(matrix);
 
             player1turn = true;
 
-            bool hor = Horizontal(matrix, "X");
-            bool ver = Vertical(matrix, "X");
-            bool d1 = Diagonal1(matrix, "X");
-            bool d2 = Diagonal2(matrix, "X");
+            bool hor = Horizontal(matrix, "0");
+            bool ver = Vertical(matrix, "0");
+            bool d1 = Diagonal1(matrix, "0");
+            bool d2 = Diagonal2(matrix, "0");
 
             if (hor == true || ver == true || d1 == true || d2 == true)
             {
@@ -102,15 +103,17 @@ static void TicTacToe()
 
 static void DrawMatrix(string[,] x)
 {
-    
+    Console.WriteLine("____________________________");
     for(int i = 0; i < x.GetLength(0); i++)
     {
+        Console.Write("|");
         for (int j = 0; j < x.GetLength(1); j++)
         {
             string t = x[i, j] == null ? " " : $"{x[i, j]}";
-            Console.WriteLine($"| {t} |");
+            Console.Write($"|{t}|");
         }
-        Console.WriteLine("-------------");
+        Console.Write("|");
+        Console.WriteLine();
     }
 }
 
