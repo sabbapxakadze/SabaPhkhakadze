@@ -111,10 +111,10 @@ static void DrawMatrix(string[,] x)
         {
             string t = x[i, j] == null ? " " : $"{x[i, j]}";
             Console.Write($"|{t}");
-            if (j == x.GetLength(1)-1) Console.Write("|");
+            if (j == x.GetLength(1)-1) Console.Write("");
         }
-        
-        Console.WriteLine("___________");
+        Console.Write("|");
+        Console.WriteLine();
     }
 }
 
