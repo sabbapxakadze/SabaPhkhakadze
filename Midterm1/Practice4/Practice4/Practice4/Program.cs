@@ -25,12 +25,13 @@ void App(string path)
 {
     bool exists = Directory.Exists(path);
 
+    if (path == "exit") return;
     if (exists == false)
     {
         Console.WriteLine("The directory path does not exists");
         return;
     }
-    if (path == "exit") return;
+    
 
     string[] directories = Directory.GetDirectories(path);
     string[] files = Directory.GetFiles(path);
