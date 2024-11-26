@@ -40,5 +40,5 @@
 }
 
 Console.WriteLine(BalancedBrackets("(){([])}")); // this must be true!
-Console.WriteLine(BalancedBrackets("(){([])}")); // this must be false!
+Console.WriteLine(BalancedBrackets("({([])}")); // this must be false!
 
