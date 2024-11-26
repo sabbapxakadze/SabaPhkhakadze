@@ -7,8 +7,14 @@
 
     for (int i = 0; i < str.Length; i++)
     {
-        if (str[i].Equals('(') || str[i].Equals('{') || str[i].Equals('['))
+        if (str[i].Equals('('))
             round.Push(str[i]);
+
+        else if (str[i].Equals('{'))
+            curly.Push(str[i]);
+
+        else if (str[i].Equals('['))
+            square.Push(str[i]);
 
 
         else if (str[i].Equals(')'))
