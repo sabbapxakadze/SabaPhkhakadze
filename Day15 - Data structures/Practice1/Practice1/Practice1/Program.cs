@@ -1,44 +1,28 @@
 ﻿static bool BalancedBrackets(string str)
-{
-    Stack<char> round = new Stack<char>();
-    Stack<char> curly = new Stack<char>();
-    Stack<char> square = new Stack<char>();
+{ 
+    Stack<char> stack = new Stack<char>();
 
-
-    for (int i = 0; i < str.Length; i++)
+    foreach (char c in str)
     {
-        if (str[i].Equals('('))
-            round.Push(str[i]);
-
-        else if (str[i].Equals('{'))
-            curly.Push(str[i]);
-
-        else if (str[i].Equals('['))
-            square.Push(str[i]);
-
-
-        else if (str[i].Equals(')'))
-        {
-            if (round.Count != 0 && round.Peek().Equals('('))
-            round.Pop();
-            else round.Push(str[i]);
-        }
-        else if (str[i].Equals('}'))
-        {
-            if (curly.Count != 0  && curly.Peek().Equals('{'))
-                curly.Pop();
-            else curly.Push(str[i]);
-        }
-        else if (square.Count != 0 && str[i].Equals(']'))
-        {
-            if (square.Peek().Equals('['))
-                square.Pop();
-            else square.Push(str[i]);
-        }
+        if (c.Equals('(') || c.Equals('[') || c.Equals('{'))
+            stack.Push(c);
+        else if 
+            (stack.Count != 0 && (
+            ((c.Equals(')') && stack.Peek().Equals('(')))
+            ||
+            ((c.Equals(']') && stack.Peek().Equals('[')))
+            ||
+            ((c.Equals('}') && stack.Peek().Equals('{')))
+            ))
+            stack.Pop();
+        
+        else
+            return false;
     }
 
-    return round.Count + curly.Count + square.Count == 0;
+    return stack.Count == 0;
 }
 
 Console.WriteLine(BalancedBrackets("(){([])}")); // this must be true!
 Console.WriteLine(BalancedBrackets("({([])}")); // this must be false!
+Console.WriteLine(BalancedBrackets("([)]"));
