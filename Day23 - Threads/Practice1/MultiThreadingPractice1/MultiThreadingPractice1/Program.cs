@@ -53,8 +53,8 @@ public class Program
 
         for (int i = 0; i < threads; i++)
         {
-            int threadStart = start + i * range;
-            int threadEnd = (i == threads - 1) ? end : threadStart + range - 1;
+            int threadStart = start + i * interval;
+            int threadEnd = (i == threads - 1) ? end : threadStart + interval - 1;
             Thread t = new Thread(() => PrimesInRange(threadStart, threadEnd));
             threadList.Add(t);
         }
@@ -71,7 +71,6 @@ public class Program
         stopwatch.Stop(); 
 
 
-        primeNums.Sort();
         Console.WriteLine("Primes in the range are: ");
         foreach(int i in primeNums)
         {
