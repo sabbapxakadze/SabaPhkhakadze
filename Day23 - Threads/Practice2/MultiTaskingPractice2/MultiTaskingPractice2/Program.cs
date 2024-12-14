@@ -51,19 +51,19 @@ public class Program
                 {
                     _seconds = 0;
                 }
-                Console.SetCursorPosition(0, 2); // Move to a new line
+                Console.SetCursorPosition(0, 2); 
                 Console.WriteLine("Timer reset.");
             }
             else if (input == 'Q' || input == 'q')
             {
                 _isRunning = false;
-                Console.SetCursorPosition(0, 2); // Move to a new line
+                Console.SetCursorPosition(0, 2); 
                 Console.WriteLine("Program ending");
                 Console.WriteLine();
             }
             else
             {
-                Console.SetCursorPosition(0, 2); // Move to a new line
+                Console.SetCursorPosition(0, 2); 
                 Console.WriteLine("You should reset timer with 'R'");
                 Console.WriteLine("End program with 'Q'");
             }
