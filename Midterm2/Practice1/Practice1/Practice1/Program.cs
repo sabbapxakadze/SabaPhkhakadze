@@ -13,7 +13,7 @@ Player p2 = new Player(board2);
 p1.PutFiguresOnBoard();
 
 p2.PutFiguresOnBoard();
-
+//
 
 bool p1Turn = true;
 while (p1.lifeCount != 0 && p2.lifeCount != 0)
